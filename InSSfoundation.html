@@ -1,0 +1,271 @@
+ <?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script language="JavaScript" type="text/javascript" src="js/InSSutiles.class.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/InSSinit.class.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/InSSinitiate.run.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/InSSafter.class.js"></script>
+  <script language="JavaScript" type="text/javascript" src="js/md5.js"></script>
+  <title>Fundacja `Podaruj dzieciom promyk nadziei` - InSSfoundation ver 0.01</title>
+</head>
+<body id="body">
+<script>                          
+var foundationData = {
+
+};
+//cialo klasy fundacji
+utiles.json[ 'InSSfoundation^html' ] = {
+
+};
+utiles.json[ 'InSSfoundation^params' ] = { 
+  'autoGenHTML':          true,          
+  'visibleRowNo':         true,          
+  'divParentId':          'body',          
+  'sourceJSONobj':        utiles.json[ 'InSSfoundation^html' ],             
+  'sourceJSONobjSpecial': '',             
+  'sourceCssJSONobj':     '',             
+};
+var data = new InSSfoundationDataManager();
+var main = new InSSfoundation();
+main.createHTML( main.constPartHTMLsystem );
+
+function InSSfoundationDataManager(){
+  //stale - konstrukcja JSON
+
+  //klucze danych
+
+  //zmienne
+  this.dataOK = false;
+  this.data = new Object();
+
+  //walidacje
+  this.validDataStruct = function(){
+    //walidacja obiektu JSON z danymi
+    try{
+      if( !utiles.exists(foundationData) )
+        return utiles.alert('validDataStruct: e-010');
+    }
+    catch(e){
+      return utiles.alert('validDataStruct: e-020');
+    }
+    this.data = foundationData;
+    
+
+    return true;
+  };
+  
+  this.get = function( p_key, p_extraParamsArray ){
+
+    switch( p_key ){
+
+    }
+  };
+  this.set = function( p_key, p_value, p_extraParamsArray ){
+
+    switch( p_key ){
+
+    }
+  };
+  
+  
+  this.init = function(){
+    this.dataOK = this.validDataStruct();
+  };
+  
+  this.init();
+};
+
+function InSSfoundation(){
+/* TODO:
+1. Ogolne zalozenie fundacji
+1.1. Latwy system dystrybucji okreslonych dobr od darczyncow do odbiorcow zglaszajacych zapotrzebowanie
+1.2. Odbiorca (zarejestrowany) dopisuje przedmioty, ktore potrzebuje
+1.3. Darczynca odwiedzajacy fundacje, moze w latwy sposob poszukac rzeczy, ktore np zbywaja lub przeszkadzaja mu w domu
+     celem przekazania ich konkretnym potrzebujacym
+1.4. Zarowna darczynca jak i obdarowywany musza miec zalozone konta w systemie
+1.5. Weryfikacja odbiorcow - narazie tylko domy dziecka, hospicja etc
+1.6. Mozliwosc ewidencji konkretnych dzieci w ramach danego osrodka, byc moze ale to za zgoda osrodka w cleu pobudzenia
+     uwrazliwienia darczyncow na los innych krotki opis historii dziecka, przypadek choroby etc
+1.6.1. Prawdopodobnie, jesli odbiorca nie bedzie instytucja (dom dziecka) a konkretne dziecko, bedzie to lepiej odbierane
+1.6.2. Mozliwosc podpiecia pod jeden przedmiot kilku odbiorcow, np. pilka do nogi moze byc uzywana przez kilku chlopakow,
+       lub byc zglaszana przez kilku dzieci 
+1.7. Narazie nie bedzie ile dzieci tyle kont, raczej bedzie jedno konto organizacji
+     a w ramach tego konta beda jej podopieczni
+2. Kategorie podarkow
+2.1. Wstepnie zalozyc sporo kategorii oraz umozliwic zakladanie nowych kategorii - moze akceptowalnych przez moderatorow
+2.2. Mozliwosc przyporzadkowania kilku kategoriom
+2.3. Sortowanie alfabetyczne
+2.4. W ramach kategorii podarki sortowane: alfabetycznie, wagowo (wg rzadziej obdarowywanych)
+3. Przeglad organizacji oraz ich podopiecznych - swoje strony prowadzone przez ich samych
+4. Konto darczyncy
+4.1. Informacje podstawowe, ktore chce zamiescic
+4.2. Mozliwosc okreslenia, ktore dane maja byc prezentowane na stronie
+4.3. Statystyki: seduszka, jezeli darczynca jest tez czsami obdarowywany - to i sloneczka z liczba otrzymanych podarkow
+4.4. Intefejs liczby seruszek i sloneczek dostepnny do zamieszczenia na swojej stronie
+5. Fundacja non-profit
+5.1. Jedyna forma pomocy fundacji sa uslugi, dlatego na stronie bedzie informacja o potrzebach fundacji
+5.2. Na stronie rowniez bedzie lista pomagajacych fundacji - male loga firmy posortowane w kolejnosci przystapienia do pomocy fundacji
+5.3. Z pierwszych potrzeb fundacji: domena, miejsce serwerowe, tanie przesylki
+*/
+  this.constDivMenu = 'menu';
+  this.constDivSite = 'site';
+  this.constDivCalendarBody = 'calendar_body';
+  
+  this.constPartHTMLsystem = 'system';
+  this.constPartHTMLmenu = 'menu';
+  this.constPartHTMLschedule = 'schedule';
+  this.constScheduleSquash = 'squash';
+  
+  this.createHTML = function( p_part, p_paramsArray ){
+    if( !utiles.exists( p_paramsArray ) )
+      var p_paramsArray = new Array();
+    
+    switch( p_part ){
+      case this.constPartHTMLsystem:
+        after.createHTML( utiles.json[ 'InSSfoundation^params' ] );
+        break;
+
+      default:
+        return utiles.alert('createHTML: e-010');
+    };
+  };
+  
+  this.createHTMLschedule = function( p_type ){
+
+  };
+  this.createHTMLscheduleHeader = function( p_type ){
+    
+  };
+
+};
+
+
+</script>
+
+<script>
+  //smiecie
+  function $( id ){
+    return document.getElementById( id );
+  }
+</script>
+<style>
+  body{
+    margin:0;
+    padding:0;
+    font-family:Georgia, sans-serif;
+  }
+</style>
+  </body>
+  
+<!-- 
+ceneo.pl
+
+
+    Biuro i firma 
+    Biżuteria i zegarki 
+    Dla dziecka 
+    Dom i wnętrze 
+    Erotyka
+    Filmy 
+    Fotografia 
+    Gry 
+    Hobby 
+    Komputery 
+    Księgarnia 
+    Kupony rabatowe
+    Motoryzacja 
+    Muzyka 
+    Odzież, obuwie, dodatki
+    Ogród 
+    Sport i rekreacja
+    Sprzęt AGD 
+    Sprzęt RTV 
+    Telefony i akcesoria 
+    Uroda 
+    Zdrowie 
+    
+allegro.pl
+    Antyki i Sztuka
+    Bilety
+    Biuro i Reklama
+    Biżuteria i Zegarki
+    Delikatesy
+    Dla Dzieci
+    Dom i Ogród
+    Erotyka
+    Filmy
+    Fotografia
+    Gry
+    Kolekcje
+    Komputery
+    Książki i Komiksy
+    Motoryzacja
+    Muzyka i Instrumenty
+    Nieruchomości
+    Odzież, Obuwie, Dodatki
+    Przemysł
+    Rękodzieło
+    RTV i AGD
+    Sport i Turystyka
+    Telefony i Akcesoria
+    Usługi
+    Wakacje
+    Zdrowie i Uroda
+
+
+	
+tablica.pl	
+Dla Dzieci
+Zwierzęta
+Moda
+Dom i Ogród
+Elektronika
+Sport i Hobby
+Muzyka i Edukacja
+Motoryzacja
+Nieruchomości
+Rolnictwo
+Praca
+Usługi i Firmy
+
+ebay.pl
+Antyki i Sztuka
+Auto: Części
+Auto: Pojazdy
+Biżuteria i Zegarki
+Dla Dzieci
+Dom i Meble
+Filmy i DVD
+Firma i Przemysł
+Fotografia i Aparaty
+Gry
+Kolekcje
+Komputery i Laptopy
+Kosmetyki i Perfumy
+Książki i Komiksy
+Monety i Banknoty
+Muzyka i CD
+Nieruchomości
+Odzież, Buty i Dodatki
+Praca
+RTV i AGD
+Sport i Turystyka
+Telefony i Akcesoria
+
+gratka.pl
+
+
+    Odzież używana
+    Meble używane
+    Używane AGD
+    Używane książki
+    Wózki dziecięce
+    Firmy budowlane
+    Psy
+    Koty
+
+
+-->  
+</html>
